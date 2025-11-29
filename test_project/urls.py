@@ -2,7 +2,7 @@
 from django.contrib import admin
 from django.urls import path
 
-from accounts.views import home, lessons_view, signup_view, login_view, logout_view
+from accounts.views import home, lessons_view, signup_view, login_view, logout_view, coming_soon_view
 
 urlpatterns = [
     path('', home, name='home'),
@@ -10,6 +10,9 @@ urlpatterns = [
     path('login/', login_view, name='login'),
     path('logout/', logout_view, name='logout'),
     path('lessons/', lessons_view, name='lessons'),
+    path('conversation-practice/', coming_soon_view, name='conversation-practice'),
+    path('vocab-flashcards/', coming_soon_view, name='vocab-flashcards'),
+    path('pronunciation-help/', coming_soon_view, name='pronunciation-help'),
 
     path('admin/', admin.site.urls),
 ]
