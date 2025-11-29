@@ -1,22 +1,425 @@
 <!DOCTYPE html>
-{% load static %}
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+    <!-- The title tag is also translatable! -->
+    <title data-key="page_title">WorkLingo - Learn English for Retail & Food Service</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Use Inter font as the default */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Simple hero pattern for visual interest */
+        .hero-pattern {
+            background-color: #ffffff;
+            opacity: 0.8;
+            background-image:  linear-gradient(135deg, #f0f9ff 25%, transparent 25%), linear-gradient(225deg, #f0f9ff 25%, transparent 25%), linear-gradient(45deg, #f0f9ff 25%, transparent 25%), linear-gradient(315deg, #f0f9ff 25%, #ffffff 25%);
+            background-position:  10px 0, 10px 0, 0 0, 0 0;
+            background-size: 20px 20px;
+            background-repeat: repeat;
+        }
+    </style>
 </head>
-<body>
-    <div class="container">
-        <h2>Welcome to Your Home Page</h2>
-        <p>This is the home page content. You can add more content here.</p>
-        {% if request.user.is_authenticated %}
-        <a href="{% url 'logout' %}">Logout</a>
-        {% else %}
-        <a href="{% url 'login' %}">Login</a>
-        <a href="{% url 'signup' %}">Signup</a>
-        {% endif %}
-    </div>
+<body class="bg-white text-gray-800">
+
+    <!-- Header / Navigation -->
+    <header class="bg-white border-b border-gray-200 sticky top-0 z-50">
+        <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo (Brand name, usually not translated) -->
+                <div class="flex-shrink-0 flex items-center">
+                    <span class="text-2xl font-bold text-cyan-600">WorkLingo</span>
+                </div>
+                <!-- Navigation Links -->
+                <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
+                    <a href="#features" class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300" data-key="nav_features">Features</a>
+                    <a href="#courses" class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300" data-key="nav_what_you_learn">What You'll Learn</a>
+                    <a href="#testimonials" class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300" data-key="nav_testimonials">Testimonials</a>
+                </div>
+                
+                <!-- Right side items -->
+                <div class="flex items-center space-x-2 sm:space-x-4">
+                    <!-- Language Toggle -->
+                    <div class="flex items-center bg-gray-100 rounded-full p-0.5 text-sm font-medium">
+                        <button id="lang-en" class="px-3 py-0.5 rounded-full bg-white text-cyan-600 shadow-sm transition-all duration-150">
+                            English
+                        </button>
+                        <button id="lang-es" class="px-3 py-0.5 rounded-full text-gray-500 hover:text-gray-700 transition-all duration-150">
+                            Español
+                        </button>
+                    </div>
+    
+                    <!-- Auth Buttons -->
+                    <div class="flex items-center space-x-2">
+                        <a href="{% url 'login' %}" class="px-4 py-2 text-sm font-medium text-gray-600 hover:text-cyan-600" data-key="auth_login">
+                            Log In
+                        </a>
+                        <a href="{% url 'signup' %}" class="px-4 py-2 text-sm font-medium text-white bg-cyan-600 rounded-lg shadow-sm hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500" data-key="auth_signup">
+                            Sign Up Free
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="relative">
+            <div class="absolute inset-0 hero-pattern"></div>
+            <div class="relative container mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32 text-center">
+                <h1 class="text-4xl md:text-6xl font-bold tracking-tight text-gray-900" data-key="hero_title">
+                    Speak English Confidently at Your Job.
+                </h1>
+                <p class="mt-6 text-lg md:text-xl max-w-3xl mx-auto text-gray-600" data-key="hero_subtitle">
+                    Your guide to the English you *really* need for customer service, retail, and fast-food jobs. Start taking orders and helping customers today.
+                </p>
+                <div class="mt-10">
+                    <a href="#" class="px-8 py-3 text-lg font-medium text-white bg-cyan-600 rounded-lg shadow-lg hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 transform transition-transform hover:scale-105" data-key="hero_cta">
+                        Start Learning for Free
+                    </a>
+                    <p class="mt-4 text-sm text-gray-500" data-key="hero_subtext">No credit card required.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="py-16 sm:py-24 bg-gray-50">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-gray-900" data-key="features_title">
+                        Learn What You Actually Need
+                    </h2>
+                    <p class="mt-4 text-lg text-gray-600" data-key="features_subtitle">
+                        Stop memorizing random words. Start practicing real conversations.
+                    </p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Feature 1 -->
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <div class="flex-shrink-0">
+                            <!-- Icon Placeholder -->
+                            <svg class="h-10 w-10 text-cyan-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12c0-1.232-.046-2.453-.138-3.662a4.006 4.006 0 00-3.7-3.7 48.678 48.678 0 00-7.324 0 4.006 4.006 0 00-3.7 3.7c-.092 1.21-.138 2.43-.138 3.662v.513a1.65 1.65 0 001.65 1.65h13.2a1.65 1.65 0 001.65-1.65v-.513z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12a2.25 2.25 0 01-2.25 2.25H6.75A2.25 2.25 0 014.5 12m15 0a2.25 2.25 0 00-2.25-2.25H6.75A2.25 2.25 0 004.5 12m15 0H4.5m15 0h.008v.008H19.5V12z" />
+                            </svg>
+                        </div>
+                        <h3 class="mt-4 text-xl font-semibold" data-key="feature1_title">Job-Specific Vocabulary</h3>
+                        <p class="mt-2 text-gray-600" data-key="feature1_desc">
+                            Learn phrases like "Cash or card?", "Would you like a bag?", "Dine-in or take-out?", and "Can I help you find a size?"
+                        </p>
+                    </div>
+                    <!-- Feature 2 -->
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <!-- Icon Placeholder -->
+                        <svg class="h-10 w-10 text-cyan-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 21l5.25-11.25L21 21m-9-3h7.5M3 5.621a48.474 48.474 0 016-.371m0 0c1.12 0 2.233.038 3.334.114M9 5.25V3m3.334 2.364C13.18 7.061 14.289 7.5 15.5 7.5c1.21 0 2.32-.439 3.333-1.136m-1.99 0V3.375c.613.284 1.17.612 1.687.975V3.375c.613.284 1.17.612 1.687.975m0 0V3.375V3" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6.115 5.25a.75.75 0 01-.75-.75V3a.75.75 0 01.75-.75h.04M6.15 3a.75.75 0 00-.75.75v.04" />
+                        </svg>
+                        <h3 class="mt-4 text-xl font-semibold" data-key="feature2_title">Real-World Speaking Practice</h3>
+                        <p class="mt-2 text-gray-600" data-key="feature2_desc">
+                            Talk to an AI-powered customer. Practice taking a complicated coffee order or handling a return until you feel 100% confident.
+                        </p>
+                    </div>
+                    <!-- Feature 3 -->
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <!-- Icon Placeholder -->
+                        <svg class="h-10 w-10 text-cyan-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <h3 class="mt-4 text-xl font-semibold" data-key="feature3_title">5-Minute Lessons</h3>
+                        <p class="mt-2 text-gray-600" data-key="feature3_desc">
+                            Perfect for your break or on the bus. Our lessons are fast, effective, and designed for your busy schedule.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Course Modules Section -->
+        <section id="courses" class="py-16 sm:py-24">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="lg:text-center">
+                    <h2 class="text-base font-semibold tracking-wide text-cyan-600 uppercase" data-key="courses_pre_title">What You'll Learn</h2>
+                    <p class="mt-2 text-3xl leading-8 font-bold tracking-tight text-gray-900 sm:text-4xl" data-key="courses_title">
+                        Master the Moments That Matter
+                    </p>
+                    <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto" data-key="courses_subtitle">
+                        Focus on the key interactions you'll have every day at your job.
+                    </p>
+                </div>
+                <div class="mt-12">
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
+                        <div class="p-4 bg-cyan-50 rounded-lg">
+                            <p class="font-medium text-cyan-800" data-key="module_greeting">Greeting Customers</p>
+                        </div>
+                        <div class="p-4 bg-cyan-50 rounded-lg">
+                            <p class="font-medium text-cyan-800" data-key="module_orders">Taking Orders</p>
+                        </div>
+                        <div class="p-4 bg-cyan-50 rounded-lg">
+                            <p class="font-medium text-cyan-800" data-key="module_payments">Handling Payments</p>
+                        </div>
+                        <div class="p-4 bg-cyan-50 rounded-lg">
+                            <p class="font-medium text-cyan-800" data-key="module_questions">Answering Questions</p>
+                        </div>
+                        <div class="p-4 bg-cyan-50 rounded-lg">
+                            <p class="font-medium text-cyan-800" data-key="module_upselling">Upselling & Recommending</p>
+                        </div>
+                        <div class="p-4 bg-cyan-50 rounded-lg">
+                            <p class="font-medium text-cyan-800" data-key="module_problems">Common Problems & Complaints</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Testimonials -->
+        <section id="testimonials" class="py-16 sm:py-24 bg-gray-50">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl font-bold text-center text-gray-900" data-key="testimonials_title">
+                    Trusted by learners like you
+                </h2>
+                <div class="mt-10 grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <p class="text-gray-600" data-key="testimonial1_quote">"I used to be so nervous talking to customers. After two weeks with this app, I can take coffee orders without asking 'what?' three times. It's a big help!"</p>
+                        <div class="mt-4 flex items-center">
+                            <img class="h-12 w-12 rounded-full" src="https://placehold.co/48x48/E0F2F7/333333?text=M" alt="Maria, Barista">
+                            <div class="ml-4">
+                                <p class="font-semibold text-gray-900" data-key="testimonial1_name">Maria S.</p>
+                                <p class="text-gray-500" data-key="testimonial1_job">Barista</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <p class="text-gray-600" data-key="testimonial2_quote">"My manager is happier because I can help customers find items in the store. The section on 'aisles and locations' was perfect. I understand questions much better now."</p>
+                        <div class="mt-4 flex items-center">
+                            <img class="h-12 w-12 rounded-full" src="https://placehold.co/48x48/E0F2F7/333333?text=L" alt="Leo, Stocker">
+                            <div class="ml-4">
+                                <p class="font-semibold text-gray-900" data-key="testimonial2_name">Leo K.</p>
+                                <p class="text-gray-500" data-key="testimonial2_job">Retail Stocker</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA -->
+        <section class="bg-white py-16 sm:py-24">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900" data-key="cta_title">
+                    Ready to build your confidence?
+                </h2>
+                <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto" data-key="cta_subtitle">
+                    Start today and be ready for your next shift. Your first lessons are free.
+                </p>
+                <div class="mt-8">
+                    <a href="#" class="px-8 py-3 text-lg font-medium text-white bg-cyan-600 rounded-lg shadow-lg hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 transform transition-transform hover:scale-105" data-key="cta_button">
+                        Start Learning Now
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-gray-300">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <span class="text-xl font-bold text-white">WorkLingo</span>
+                    <p class="text-sm text-gray-400" data-key="footer_subtitle">Practical English for your job.</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-sm hover:text-white" data-key="footer_about">About Us</a>
+                    <a href="#" class="text-sm hover:text-white" data-key="footer_contact">Contact</a>
+                    <a href="#" class="text-sm hover:text-white" data-key="footer_privacy">Privacy Policy</a>
+                    <a href="#" class="text-sm hover:text-white" data-key="footer_terms">Terms of Service</a>
+                </div>
+            </div>
+            <div class="mt-8 border-t border-gray-700 pt-6 text-center text-sm text-gray-400" data-key="footer_copyright">
+                &copy; 2025 WorkLingo. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // --- START OF TRANSLATION SCRIPT ---
+
+        const langEn = document.getElementById('lang-en');
+        const langEs = document.getElementById('lang-es');
+
+        // 1. Translation strings dictionary
+        const languageStrings = {
+            en: {
+                page_title: "WorkLingo - Learn English for Retail & Food Service",
+                nav_features: "Features",
+                nav_what_you_learn: "What You'll Learn",
+                nav_testimonials: "Testimonials",
+                auth_login: "Log In",
+                auth_signup: "Sign Up Free",
+                hero_title: "Speak English Confidently at Your Job.",
+                hero_subtitle: "Your guide to the English you *really* need for customer service, retail, and fast-food jobs. Start taking orders and helping customers today.",
+                hero_cta: "Start Learning for Free",
+                hero_subtext: "No credit card required.",
+                features_title: "Learn What You Actually Need",
+                features_subtitle: "Stop memorizing random words. Start practicing real conversations.",
+                feature1_title: "Job-Specific Vocabulary",
+                feature1_desc: 'Learn phrases like "Cash or card?", "Would you like a bag?", "Dine-in or take-out?", and "Can I help you find a size?"',
+                feature2_title: "Real-World Speaking Practice",
+                feature2_desc: "Talk to an AI-powered customer. Practice taking a complicated coffee order or handling a return until you feel 100% confident.",
+                feature3_title: "5-Minute Lessons",
+                feature3_desc: "Perfect for your break or on the bus. Our lessons are fast, effective, and designed for your busy schedule.",
+                courses_pre_title: "What You'll Learn",
+                courses_title: "Master the Moments That Matter",
+                courses_subtitle: "Focus on the key interactions you'll have every day at your job.",
+                module_greeting: "Greeting Customers",
+                module_orders: "Taking Orders",
+                module_payments: "Handling Payments",
+                module_questions: "Answering Questions",
+                module_upselling: "Upselling & Recommending",
+                module_problems: "Common Problems & Complaints",
+                testimonials_title: "Trusted by learners like you",
+                testimonial1_quote: '"I used to be so nervous talking to customers. After two weeks with this app, I can take coffee orders without asking \'what?\' three times. It\'s a big help!"',
+                testimonial1_name: "Maria S.",
+                testimonial1_job: "Barista",
+                testimonial2_quote: '"My manager is happier because I can help customers find items in the store. The section on \'aisles and locations\' was perfect. I understand questions much better now."',
+                testimonial2_name: "Leo K.",
+                testimonial2_job: "Retail Stocker",
+                cta_title: "Ready to build your confidence?",
+                cta_subtitle: "Start today and be ready for your next shift. Your first lessons are free.",
+                cta_button: "Start Learning Now",
+                footer_subtitle: "Practical English for your job.",
+                footer_about: "About Us",
+                footer_contact: "Contact",
+                footer_privacy: "Privacy Policy",
+                footer_terms: "Terms of Service",
+                footer_copyright: "© 2025 WorkLingo. All rights reserved.",
+            },
+            es: {
+                page_title: "WorkLingo - Aprende Inglés para Comercio y Comida Rápida",
+                nav_features: "Características",
+                nav_what_you_learn: "Qué Aprenderás",
+                nav_testimonials: "Testimonios",
+                auth_login: "Iniciar Sesión",
+                auth_signup: "Regístrate Gratis",
+                hero_title: "Habla Inglés con Confianza en tu Trabajo.",
+                hero_subtitle: "Tu guía al inglés que *realmente* necesitas para servicio al cliente, comercio y trabajos de comida rápida. Empieza a tomar órdenes y ayudar a clientes hoy.",
+                hero_cta: "Empieza a Aprender Gratis",
+                hero_subtext: "No se requiere tarjeta de crédito.",
+                features_title: "Aprende lo que Realmente Necesitas",
+                features_subtitle: "Deja de memorizar palabras al azar. Empieza a practicar conversaciones reales.",
+                feature1_title: "Vocabulario Específico del Trabajo",
+                feature1_desc: 'Aprende frases como "¿Efectivo o tarjeta?", "¿Te gustaría una bolsa?", "¿Para aquí o para llevar?" y "¿Le ayudo a encontrar una talla?"',
+                feature2_title: "Práctica de Habla Real",
+                feature2_desc: "Habla con un cliente de IA. Practica tomar una orden de café complicada o manejar una devolución hasta que te sientas 100% seguro.",
+                feature3_title: "Lecciones de 5 Minutos",
+                feature3_desc: "Perfecto para tu descanso o en el autobús. Nuestras lecciones son rápidas, efectivas y diseñadas para tu horario ocupado.",
+                courses_pre_title: "Qué Aprenderás",
+                courses_title: "Domina los Momentos que Importan",
+                courses_subtitle: "Enfócate en las interacciones clave que tendrás cada día en tu trabajo.",
+                module_greeting: "Saludar a Clientes",
+                module_orders: "Tomar Órdenes",
+                module_payments: "Manejar Pagos",
+                module_questions: "Responder Preguntas",
+                module_upselling: "Ventas Adicionales y Recomendaciones",
+                module_problems: "Problemas y Quejas Comunes",
+                testimonials_title: "Con la confianza de estudiantes como tú",
+                testimonial1_quote: '"Solía ponerme muy nerviosa al hablar con clientes. Después de dos semanas con esta app, puedo tomar órdenes de café sin preguntar \'¿qué?\' tres veces. ¡Es una gran ayuda!"',
+                testimonial1_name: "Maria S.",
+                testimonial1_job: "Barista",
+                testimonial2_quote: '"Mi gerente está más feliz porque puedo ayudar a los clientes a encontrar artículos en la tienda. La sección de \'pasillos y ubicaciones\' fue perfecta. Entiendo mucho mejor las preguntas ahora."',
+                testimonial2_name: "Leo K.",
+                testimonial2_job: "Surtidor de Tienda",
+                cta_title: "¿Listo para ganar confianza?",
+                cta_subtitle: "Empieza hoy y prepárate para tu próximo turno. Tus primeras lecciones son gratis.",
+                cta_button: "Empieza a Aprender Ahora",
+                footer_subtitle: "Inglés práctico para tu trabajo.",
+                footer_about: "Sobre Nosotros",
+                footer_contact: "Contacto",
+                footer_privacy: "Política de Privacidad",
+                footer_terms: "Términos de Servicio",
+                footer_copyright: "© 2025 WorkLingo. Todos los derechos reservados.",
+            }
+        };
+
+        // 2. Function to translate the page
+        const translatePage = (lang) => {
+            // Set the <html> tag's lang attribute
+            document.documentElement.lang = lang;
+
+            const translations = languageStrings[lang];
+            
+            // Find all elements with a data-key
+            document.querySelectorAll('[data-key]').forEach(element => {
+                const key = element.dataset.key;
+                if (translations[key]) {
+                    // Use textContent for most elements
+                    // Use innerHTML if you need to render HTML (like the <b> tags),
+                    // but textContent is safer.
+                    // Let's stick to textContent for safety here.
+                    // For the hero_subtitle, we'll just use the text.
+                    element.textContent = translations[key];
+                }
+            });
+
+            // Special case for the title tag in <head>
+            const titleElement = document.querySelector('title[data-key="page_title"]');
+            if (titleElement && translations.page_title) {
+                titleElement.textContent = translations.page_title;
+            }
+        };
+
+        // 3. Function to set the active button style
+        const setActiveLang = (lang) => {
+            if (lang === 'en') {
+                // Style EN as active
+                langEn.classList.add('bg-white', 'text-cyan-600', 'shadow-sm');
+                langEn.classList.remove('text-gray-500', 'hover:text-gray-700');
+                
+                // Style ES as inactive
+                langEs.classList.remove('bg-white', 'text-cyan-600', 'shadow-sm');
+                langEs.classList.add('text-gray-500', 'hover:text-gray-700');
+            } else if (lang === 'es') {
+                // Style ES as active
+                langEs.classList.add('bg-white', 'text-cyan-600', 'shadow-sm');
+                langEs.classList.remove('text-gray-500', 'hover:text-gray-700');
+
+                // Style EN as inactive
+                langEn.classList.remove('bg-white', 'text-cyan-600', 'shadow-sm');
+                langEn.classList.add('text-gray-500', 'hover:text-gray-700');
+            }
+            console.log("Language set to:", lang);
+        };
+
+        // 4. Update event listeners to call both functions
+        langEn.addEventListener('click', () => {
+            setActiveLang('en');
+            translatePage('en');
+            // In a real app, you'd save this choice:
+            // localStorage.setItem('userLanguage', 'en');
+        });
+        
+        langEs.addEventListener('click', () => {
+            setActiveLang('es');
+            translatePage('es');
+            // In a real app, you'd save this choice:
+            // localStorage.setItem('userLanguage', 'es');
+        });
+
+        // Optional: Check for a saved language on page load
+        // const savedLang = localStorage.getItem('userLanguage') || 'en';
+        // setActiveLang(savedLang);
+        // translatePage(savedLang);
+
+        // --- END OF TRANSLATION SCRIPT ---
+    </script>
+
 </body>
 </html>
