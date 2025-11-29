@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-key="page_title">WorkLingo - Inicio de Lecciones</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f9fb; /* Light background for a clean dashboard look */
+        }
+        .progress-bar {
+            height: 10px;
+            border-radius: 9999px;
+            background-color: #e2e8f0;
+        }
+        .progress-fill {
+            transition: width 0.5s ease-in-out;
+            background-color: #14b8a6; /* Teal/Cyan for progress */
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <!-- Header / Navigation -->
+    <header class="bg-white border-b border-gray-200 sticky top-0 z-50">
+        <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo / Dashboard Link - Updated to WorkLingo -->
+                <div class="flex-shrink-0">
+                    <span class="text-2xl font-bold text-cyan-600">WorkLingo</span>
+                    <span class="text-sm font-medium text-gray-500 ml-2" data-key="nav_dashboard">Panel de Control</span>
+                </div>
+
+                <!-- Right side items (Language Toggle only) -->
+                <div class="flex items-center space-x-4">
+                    <!-- Language Toggle (Default ES) -->
+                    <div class="flex items-center bg-gray-100 rounded-full p-0.5 text-sm font-medium">
+                        <button id="lang-en" class="px-3 py-0.5 rounded-full text-gray-500 hover:text-gray-700 transition-all duration-150">
+                            English
+                        </button>
+                        <button id="lang-es" class="px-3 py-0.5 rounded-full bg-white text-cyan-600 shadow-sm transition-all duration-150">
+                            Español
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content: Lesson Dashboard -->
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-10">
+
+        <!-- Welcome and Progress Card (Full Width) -->
+        <div class="bg-white p-6 md:p-8 rounded-xl shadow-lg mb-10 border border-gray-200">
+            <h1 class="text-3xl font-bold text-gray-900 mb-2" data-key="welcome_title">
+                ¡Bienvenido de Nuevo, Amigo!
+            </h1>
+            <p class="text-gray-600 mb-6" data-key="welcome_subtitle">
+                Todas las lecciones están disponibles. ¡Empieza por la que te sea más útil hoy!
+            </p>
+
+            <!-- Progress Bar -->
+            <div class="flex justify-between items-center mb-2">
+                <p class="text-sm font-medium text-gray-700" data-key="progress_label">
+                    Progreso General
+                </p>
+                <!-- This value would be dynamic in a real app -->
+                <p class="text-sm font-semibold text-teal-600" id="progress-percent">25%</p>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill w-1/4" style="width: 25%;"></div>
+            </div>
+        </div>
+
+        <!-- Single Column Layout for Lessons and Tools -->
+        <div class="space-y-10">
+
+            <!-- Lesson Modules (Full Width) -->
+            <div>
+                <h2 class="text-xl font-bold text-gray-900 mb-4 border-b pb-2" data-key="lessons_section_title">
+                    Módulos de Lecciones
+                </h2>
+
+                <!-- Module 1: Greeting Customers (Current Module) -->
+                <div class="bg-white p-6 rounded-xl shadow-md border-l-4 border-cyan-500 mb-4">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <p class="text-xs font-semibold uppercase text-teal-700" data-key="module_status_in_progress">En Progreso</p>
+                            <h3 class="text-xl font-bold text-gray-900 mt-1" data-key="module1_title">Módulo 1: Saludar a Clientes</h3>
+                            <p class="text-gray-600 mt-2 text-sm" data-key="module1_desc">Aprende los saludos esenciales y preguntas iniciales.</p>
+                        </div>
+                        <span class="text-teal-600 font-semibold text-lg">0%</span>
+                    </div>
+                    <div class="mt-4">
+                        <!-- Active Link -->
+                        <a href="#" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-lg shadow-sm text-white bg-cyan-600 hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500" data-key="module_button_start">
+                            Empezar Lección
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Module 2: Taking Orders (Unlocked) -->
+                <div class="bg-white p-6 rounded-xl shadow-md border-l-4 border-cyan-500 mb-4">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <p class="text-xs font-semibold uppercase text-cyan-600" data-key="module_status_not_started">No Empezado</p>
+                            <h3 class="text-xl font-bold text-gray-900 mt-1" data-key="module2_title">Módulo 2: Tomar Órdenes y Pedidos</h3>
+                            <p class="text-gray-600 mt-2 text-sm" data-key="module2_desc">Vocabulario para menús, modificadores y confirmación.</p>
+                        </div>
+                        <span class="text-gray-500 font-semibold text-lg">0%</span>
+                    </div>
+                    <div class="mt-4">
+                        <!-- Active Link -->
+                        <a href="#" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-lg shadow-sm text-white bg-cyan-600 hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500" data-key="module_button_start">
+                            Empezar Lección
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Module 3: Handling Payments (Unlocked) -->
+                <div class="bg-white p-6 rounded-xl shadow-md border-l-4 border-cyan-500">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <p class="text-xs font-semibold uppercase text-cyan-600" data-key="module_status_not_started">No Empezado</p>
+                            <h3 class="text-xl font-bold text-gray-900 mt-1" data-key="module3_title">Módulo 3: Manejar Pagos</h3>
+                            <p class="text-gray-600 mt-2 text-sm" data-key="module3_desc">Frases para transacciones, propinas y dar cambio.</p>
+                        </div>
+                        <span class="text-gray-500 font-semibold text-lg">0%</span>
+                    </div>
+                    <div class="mt-4">
+                        <!-- Active Link -->
+                        <a href="#" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-lg shadow-sm text-white bg-cyan-600 hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500" data-key="module_button_start">
+                            Empezar Lección
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Practice Tools (Full Width, below lessons) -->
+            <div>
+                <h2 class="text-xl font-bold text-gray-900 mb-4 border-b pb-2" data-key="tools_section_title">
+                    Herramientas de Práctica Rápida
+                </h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Tool 1: Speaking Practice -->
+                    <a href="#" class="block bg-white p-6 rounded-xl shadow hover:shadow-md transition-shadow border border-blue-100 hover:border-blue-400">
+                        <div class="flex items-center space-x-4">
+                            <svg class="h-8 w-8 text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12c0-1.232-.046-2.453-.138-3.662a4.006 4.006 0 00-3.7-3.7 48.678 48.678 0 00-7.324 0 4.006 4.006 0 00-3.7 3.7c-.092 1.21-.138 2.43-.138 3.662v.513a1.65 1.65 0 001.65 1.65h13.2a1.65 1.65 0 001.65-1.65v-.513z" />
+                            </svg>
+                            <div>
+                                <p class="font-semibold text-lg text-gray-900" data-key="tool1_title">Práctica de Conversación (IA)</p>
+                                <p class="text-sm text-gray-500" data-key="tool1_subtitle">Simula interacciones reales con clientes.</p>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Tool 2: Vocabulary Flashcards -->
+                    <a href="#" class="block bg-white p-6 rounded-xl shadow hover:shadow-md transition-shadow border border-yellow-100 hover:border-yellow-400">
+                        <div class="flex items-center space-x-4">
+                            <svg class="h-8 w-8 text-yellow-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                            </svg>
+                            <div>
+                                <p class="font-semibold text-lg text-gray-900" data-key="tool2_title">Tarjetas de Vocabulario</p>
+                                <p class="text-sm text-gray-500" data-key="tool2_subtitle">Repasa términos clave para tu industria.</p>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Tool 3: Pronunciation Help -->
+                    <a href="#" class="block bg-white p-6 rounded-xl shadow hover:shadow-md transition-shadow border border-red-100 hover:border-red-400">
+                        <div class="flex items-center space-x-4">
+                            <svg class="h-8 w-8 text-red-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 18.75a6 6 0 006-6v-1.5m-6 7.5a6 6 0 01-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5" />
+                            </svg>
+                            <div>
+                                <p class="font-semibold text-lg text-gray-900" data-key="tool3_title">Ayuda con la Pronunciación</p>
+                                <p class="text-sm text-gray-500" data-key="tool3_subtitle">Perfecciona tu acento con nuestra herramienta de voz.</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="mt-10 py-6 text-center text-sm text-gray-500 border-t border-gray-200">
+        <p data-key="footer_text">Mejora tu inglés, mejora tu trabajo.</p>
+    </footer>
+
+    <script>
+        // --- START OF TRANSLATION SCRIPT ---
+
+        const langEn = document.getElementById('lang-en');
+        const langEs = document.getElementById('lang-es');
+
+        // 1. Translation strings dictionary - Updated page title for WorkLingo
+        const languageStrings = {
+            en: {
+                page_title: "WorkLingo - Lesson Dashboard",
+                nav_dashboard: "Dashboard",
+                welcome_title: "Welcome Back, Friend!",
+                welcome_subtitle: "All lessons are available. Start with the one that is most useful to you today!",
+                progress_label: "Overall Progress",
+                tools_section_title: "Quick Practice Tools",
+                tool1_title: "Conversation Practice (AI)",
+                tool1_subtitle: "Simulate real customer interactions.",
+                tool2_title: "Vocabulary Flashcards",
+                tool2_subtitle: "Review key terms for your industry.",
+                tool3_title: "Pronunciation Help",
+                tool3_subtitle: "Perfect your accent with our voice tool.",
+                lessons_section_title: "Lesson Modules",
+                module_status_in_progress: "In Progress",
+                module_status_not_started: "Not Started", // New status for unlocked modules
+                module1_title: "Module 1: Greeting Customers",
+                module1_desc: "Learn essential greetings and opening questions.",
+                module2_title: "Module 2: Taking Orders",
+                module2_desc: "Vocabulary for menus, modifiers, and confirmation.",
+                module3_title: "Module 3: Handling Payments",
+                module3_desc: "Phrases for transactions, tips, and giving change.",
+                module_button_continue: "Continue Lesson",
+                module_button_start: "Start Lesson",
+                footer_text: "Improve your English, improve your job.",
+            },
+            es: {
+                page_title: "WorkLingo - Inicio de Lecciones",
+                nav_dashboard: "Panel de Control",
+                welcome_title: "¡Bienvenido de Nuevo, Amigo!",
+                welcome_subtitle: "Todas las lecciones están disponibles. ¡Empieza por la que te sea más útil hoy!",
+                progress_label: "Progreso General",
+                tools_section_title: "Herramientas de Práctica Rápida",
+                tool1_title: "Práctica de Conversación (IA)",
+                tool1_subtitle: "Simula interacciones reales con clientes.",
+                tool2_title: "Tarjetas de Vocabulario",
+                tool2_subtitle: "Repasa términos clave para tu industria.",
+                tool3_title: "Ayuda con la Pronunciación",
+                tool3_subtitle: "Perfecciona tu acento con nuestra herramienta de voz.",
+                lessons_section_title: "Módulos de Lecciones",
+                module_status_in_progress: "En Progreso",
+                module_status_not_started: "No Empezado", // New status for unlocked modules
+                module1_title: "Módulo 1: Saludar a Clientes",
+                module1_desc: "Aprende los saludos esenciales y preguntas iniciales.",
+                module2_title: "Módulo 2: Tomar Órdenes y Pedidos",
+                module2_desc: "Vocabulario para menús, modificadores y confirmación.",
+                module3_title: "Módulo 3: Manejar Pagos",
+                module3_desc: "Frases para transacciones, propinas y dar cambio.",
+                module_button_continue: "Continuar Lección",
+                module_button_start: "Empezar Lección",
+                footer_text: "Mejora tu inglés, mejora tu trabajo.",
+            }
+        };
+
+        // 2. Function to translate the page
+        const translatePage = (lang) => {
+            // Set the <html> tag's lang attribute
+            document.documentElement.lang = lang;
+
+            const translations = languageStrings[lang];
+            
+            // Find all elements with a data-key
+            document.querySelectorAll('[data-key]').forEach(element => {
+                const key = element.dataset.key;
+                if (translations[key]) {
+                    element.textContent = translations[key];
+                }
+            });
+
+            // Special case for the title tag in <head>
+            const titleElement = document.querySelector('title[data-key="page_title"]');
+            if (titleElement && translations.page_title) {
+                titleElement.textContent = translations.page_title;
+            }
+        };
+
+        // 3. Function to set the active button style
+        const setActiveLang = (lang) => {
+            if (lang === 'en') {
+                // Style EN as active
+                langEn.classList.add('bg-white', 'text-cyan-600', 'shadow-sm');
+                langEn.classList.remove('text-gray-500', 'hover:text-gray-700');
+                
+                // Style ES as inactive
+                langEs.classList.remove('bg-white', 'text-cyan-600', 'shadow-sm');
+                langEs.classList.add('text-gray-500', 'hover:text-gray-700');
+            } else if (lang === 'es') {
+                // Style ES as active
+                langEs.classList.add('bg-white', 'text-cyan-600', 'shadow-sm');
+                langEs.classList.remove('text-gray-500', 'hover:text-gray-700');
+
+                // Style EN as inactive
+                langEn.classList.remove('bg-white', 'text-cyan-600', 'shadow-sm');
+                langEn.classList.add('text-gray-500', 'hover:text-gray-700');
+            }
+        };
+
+        // 4. Update event listeners to call both functions
+        langEn.addEventListener('click', () => {
+            setActiveLang('en');
+            translatePage('en');
+        });
+        
+        langEs.addEventListener('click', () => {
+            setActiveLang('es');
+            translatePage('es');
+        });
+
+        // 5. Initialize the page language (default to Spanish)
+        document.addEventListener('DOMContentLoaded', () => {
+            setActiveLang('es');
+            translatePage('es');
+        });
+
+        // --- END OF TRANSLATION SCRIPT ---
+    </script>
+
+</body>
+</html>

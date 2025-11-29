@@ -5,6 +5,9 @@ from django.contrib.auth import login, logout
 def home(request):
     return render(request, 'accounts/home.html')
 
+def lessons_view(request):
+    return render(request, 'accounts/lessons.html')
+
 def signup_view(request):
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
