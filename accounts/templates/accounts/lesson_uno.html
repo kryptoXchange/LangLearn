@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-key="page_title">WorkLingo - Saludar a Clientes</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f9fb;
+        }
+        .lesson-card {
+            transition: transform 0.2s;
+        }
+        .lesson-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <!-- Header / Navigation -->
+    <header class="bg-white border-b border-gray-200 sticky top-0 z-50">
+        <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo / Dashboard Link -->
+                <a href= "{% url 'home' %}" class="flex-shrink-0">
+                    <span class="text-2xl font-bold text-cyan-600">WorkLingo</span>
+                    <span class="text-sm font-medium text-gray-500 ml-2" data-key="nav_dashboard">Panel de Control</span>
+                </a>
+
+                <!-- Language Toggle -->
+                <div class="flex items-center space-x-4">
+                    <div class="flex items-center bg-gray-100 rounded-full p-0.5 text-sm font-medium">
+                        <button id="lang-en" class="px-3 py-0.5 rounded-full text-gray-500 hover:text-gray-700 transition-all duration-150">
+                            EN
+                        </button>
+                        <button id="lang-es" class="px-3 py-0.5 rounded-full bg-white text-cyan-600 shadow-sm transition-all duration-150">
+                            ES
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content: Lesson Page -->
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        
+        <!-- Lesson Header -->
+        <div class="mb-8">
+            <a href="lesson_home.html" class="text-sm font-medium text-cyan-600 hover:text-cyan-800 transition duration-150 flex items-center mb-2">
+                <svg class="w-4 h-4 mr-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+                </svg>
+                <span data-key="back_to_dashboard">Volver al Panel de Control</span>
+            </a>
+            <p class="text-xs font-semibold uppercase text-teal-700 mb-1" data-key="module_id">MÓDULO 1</p>
+            <h1 class="text-4xl font-extrabold text-gray-900" data-key="lesson_title">Saludar a Clientes</h1>
+            <p class="text-gray-600 mt-2 text-lg" data-key="lesson_intro">Aprenderás a dar una bienvenida cálida y profesional en inglés, y a hacer las preguntas iniciales clave.</p>
+        </div>
+
+        <!-- Key Phrases Section -->
+        <section class="mb-10 p-6 bg-white rounded-xl shadow-lg border-l-4 border-teal-500">
+            <h2 class="text-2xl font-bold text-gray-900 mb-4" data-key="section_key_phrases">Frases Clave: Bienvenida</h2>
+            
+            <div class="space-y-4">
+                <!-- Phrase Card 1 -->
+                <div class="p-4 bg-gray-50 rounded-lg border border-gray-200 flex flex-col sm:flex-row justify-between items-start sm:items-center lesson-card">
+                    <div>
+                        <p class="text-xl font-semibold text-teal-600" data-key="p1_en">Hello, welcome to [Restaurant/Company Name]!</p>
+                        <p class="text-sm text-gray-500 mt-1" data-key="p1_es">¡Hola, bienvenido a [Nombre del Restaurante/Empresa]!</p>
+                    </div>
+                </div>
+
+                <!-- Phrase Card 2 -->
+                <div class="p-4 bg-gray-50 rounded-lg border border-gray-200 flex flex-col sm:flex-row justify-between items-start sm:items-center lesson-card">
+                    <div>
+                        <p class="text-xl font-semibold text-teal-600" data-key="p2_en">How may I help you today?</p>
+                        <p class="text-sm text-gray-500 mt-1" data-key="p2_es">¿En qué puedo ayudarle hoy?</p>
+                    </div>
+                </div>
+
+                <!-- Phrase Card 3 -->
+                <div class="p-4 bg-gray-50 rounded-lg border border-gray-200 flex flex-col sm:flex-row justify-between items-start sm:items-center lesson-card">
+                    <div>
+                        <p class="text-xl font-semibold text-teal-600" data-key="p3_en">Do you have a reservation?</p>
+                        <p class="text-sm text-gray-500 mt-1" data-key="p3_es">¿Tiene usted una reservación?</p>
+                    </div>
+                </div>
+
+                <!-- Phrase Card 4 -->
+                <div class="p-4 bg-gray-50 rounded-lg border border-gray-200 flex flex-col sm:flex-row justify-between items-start sm:items-center lesson-card">
+                    <div>
+                        <p class="text-xl font-semibold text-teal-600" data-key="p4_en">How many people are in your party?</p>
+                        <p class="text-sm text-gray-500 mt-1" data-key="p4_es">¿Cuántas personas son?</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Practice Section (Simple Fill-in-the-Blank/Quiz) -->
+        <section class="mb-10 p-6 bg-white rounded-xl shadow-lg border-l-4 border-cyan-500">
+            <h2 class="text-2xl font-bold text-gray-900 mb-4" data-key="section_practice">Práctica Rápida</h2>
+            <p class="text-gray-600 mb-6" data-key="practice_instruction">Completa la frase con la palabra más adecuada en inglés.</p>
+
+            <div class="space-y-6 max-w-lg">
+                <div id="q1-container">
+                    <p class="mb-2 text-lg font-medium text-gray-700" data-key="q1_text">
+                        Welcome to WorkLingo! How may I [___] you today?
+                    </p>
+                    <input type="text" id="q1-input" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-cyan-500 focus:border-cyan-500" placeholder="Escribe la palabra aquí..." data-key="q_placeholder">
+                    <p id="q1-feedback" class="mt-2 text-sm font-semibold"></p>
+                </div>
+                
+                <div id="q2-container">
+                    <p class="mb-2 text-lg font-medium text-gray-700" data-key="q2_text">
+                        [___] you have a reservation?
+                    </p>
+                    <input type="text" id="q2-input" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-cyan-500 focus:border-cyan-500" placeholder="Escribe la palabra aquí..." data-key="q_placeholder">
+                    <p id="q2-feedback" class="mt-2 text-sm font-semibold"></p>
+                </div>
+                
+                <button id="check-answers" class="w-full sm:w-auto mt-4 px-6 py-3 border border-transparent text-base font-medium rounded-lg shadow-md text-white bg-cyan-600 hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 transition duration-150" data-key="check_button">
+                    Comprobar Respuestas
+                </button>
+            </div>
+        </section>
+
+        <!-- Footer Navigation -->
+        <div class="flex justify-between items-center pt-6 border-t border-gray-200">
+            <button class="px-6 py-3 border border-gray-300 text-base font-medium rounded-lg text-gray-700 bg-white hover:bg-gray-100 transition duration-150 cursor-not-allowed opacity-50" disabled data-key="prev_lesson">
+                &larr; Lección Anterior
+            </button>
+            <a href="{% url 'lessons' %}" class="px-6 py-3 border border-transparent text-base font-medium rounded-lg shadow-md text-white bg-teal-600 hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500 transition duration-150" data-key="complete_lesson">
+                Marcar como Completado
+            </a>
+        </div>
+    </main>
+
+    <!-- Language Translation and Practice Script -->
+    <script>
+        // --- TRANSLATION DATA ---
+        const langEn = document.getElementById('lang-en');
+        const langEs = document.getElementById('lang-es');
+        let currentLang = 'es';
+
+        const languageStrings = {
+            en: {
+                page_title: "WorkLingo - Greeting Customers",
+                nav_dashboard: "Dashboard",
+                back_to_dashboard: "Back to Dashboard",
+                module_id: "MODULE 1",
+                lesson_title: "Greeting Customers",
+                lesson_intro: "You will learn how to give a warm, professional welcome in English and ask key initial questions.",
+                section_key_phrases: "Key Phrases: Welcome",
+                p1_en: "Hello, welcome to [Restaurant/Company Name]!",
+                p1_es: "¡Hola, bienvenido a [Nombre del Restaurante/Empresa]!",
+                p2_en: "How may I help you today?",
+                p2_es: "¿En qué puedo ayudarle hoy?",
+                p3_en: "Do you have a reservation?",
+                p3_es: "¿Tiene usted una reservación?",
+                p4_en: "How many people are in your party?",
+                p4_es: "¿Cuántas personas son?",
+                section_practice: "Quick Practice",
+                practice_instruction: "Complete the sentence with the most appropriate word in English.",
+                q1_text: "Welcome to WorkLingo! How may I [___] you today?",
+                q2_text: "[___] you have a reservation?",
+                q_placeholder: "Type the word here...",
+                check_button: "Check Answers",
+                prev_lesson: "← Previous Lesson",
+                complete_lesson: "Mark as Complete",
+                correct: "Correct! 🎉",
+                incorrect: "Try again. Hint: look at the phrases above.",
+            },
+            es: {
+                page_title: "WorkLingo - Saludar a Clientes",
+                nav_dashboard: "Panel de Control",
+                back_to_dashboard: "Volver al Panel de Control",
+                module_id: "MÓDULO 1",
+                lesson_title: "Saludar a Clientes",
+                lesson_intro: "Aprenderás a dar una bienvenida cálida y profesional en inglés, y a hacer las preguntas iniciales clave.",
+                section_key_phrases: "Frases Clave: Bienvenida",
+                p1_en: "Hello, welcome to [Restaurant/Company Name]!",
+                p1_es: "¡Hola, bienvenido a [Nombre del Restaurante/Empresa]!",
+                p2_en: "How may I help you today?",
+                p2_es: "¿En qué puedo ayudarle hoy?",
+                p3_en: "Do you have a reservation?",
+                p3_es: "¿Tiene usted una reservación?",
+                p4_en: "How many people are in your party?",
+                p4_es: "¿Cuántas personas son?",
+                section_practice: "Práctica Rápida",
+                practice_instruction: "Completa la frase con la palabra más adecuada en inglés.",
+                q1_text: "Welcome to WorkLingo! How may I [___] you today?",
+                q2_text: "[___] you have a reservation?",
+                q_placeholder: "Escribe la palabra aquí...",
+                check_button: "Comprobar Respuestas",
+                prev_lesson: "← Lección Anterior",
+                complete_lesson: "Marcar como Completado",
+                correct: "¡Correcto! 🎉",
+                incorrect: "Intenta de nuevo. Pista: mira las frases de arriba.",
+            }
+        };
+
+        // --- TRANSLATION LOGIC (Copied from lesson_home.html) ---
+
+        const translatePage = (lang) => {
+            document.documentElement.lang = lang;
+            currentLang = lang;
+            const translations = languageStrings[lang];
+            
+            document.querySelectorAll('[data-key]').forEach(element => {
+                const key = element.dataset.key;
+                if (translations[key]) {
+                    element.textContent = translations[key];
+                }
+            });
+
+            const titleElement = document.querySelector('title[data-key="page_title"]');
+            if (titleElement && translations.page_title) {
+                titleElement.textContent = translations.page_title;
+            }
+        };
+
+        const setActiveLang = (lang) => {
+            if (lang === 'en') {
+                langEn.classList.add('bg-white', 'text-cyan-600', 'shadow-sm');
+                langEn.classList.remove('text-gray-500', 'hover:text-gray-700');
+                
+                langEs.classList.remove('bg-white', 'text-cyan-600', 'shadow-sm');
+                langEs.classList.add('text-gray-500', 'hover:text-gray-700');
+            } else if (lang === 'es') {
+                langEs.classList.add('bg-white', 'text-cyan-600', 'shadow-sm');
+                langEs.classList.remove('text-gray-500', 'hover:text-gray-700');
+
+                langEn.classList.remove('bg-white', 'text-cyan-600', 'shadow-sm');
+                langEn.classList.add('text-gray-500', 'hover:text-gray-700');
+            }
+        };
+
+        langEn.addEventListener('click', () => {
+            setActiveLang('en');
+            translatePage('en');
+        });
+        
+        langEs.addEventListener('click', () => {
+            setActiveLang('es');
+            translatePage('es');
+        });
+
+
+        // --- PRACTICE QUIZ LOGIC ---
+
+        const correctAnswers = {
+            'q1-input': 'help',
+            'q2-input': 'Do'
+        };
+
+        const checkQuiz = () => {
+            const checkAnswer = (inputId, feedbackId) => {
+                const inputElement = document.getElementById(inputId);
+                const feedbackElement = document.getElementById(feedbackId);
+                const userAnswer = inputElement.value.trim().toLowerCase();
+                const correctAnswer = correctAnswers[inputId].toLowerCase();
+                
+                if (userAnswer === correctAnswer) {
+                    feedbackElement.textContent = languageStrings[currentLang].correct;
+                    feedbackElement.classList.remove('text-red-500');
+                    feedbackElement.classList.add('text-green-600');
+                    inputElement.classList.remove('border-red-500');
+                    inputElement.classList.add('border-green-500');
+                } else {
+                    feedbackElement.textContent = languageStrings[currentLang].incorrect;
+                    feedbackElement.classList.remove('text-green-600');
+                    feedbackElement.classList.add('text-red-500');
+                    inputElement.classList.remove('border-green-500');
+                    inputElement.classList.add('border-red-500');
+                }
+            };
+
+            checkAnswer('q1-input', 'q1-feedback');
+            checkAnswer('q2-input', 'q2-feedback');
+        };
+
+        document.getElementById('check-answers').addEventListener('click', checkQuiz);
+
+        // --- INITIALIZATION ---
+        document.addEventListener('DOMContentLoaded', () => {
+            // Default to Spanish
+            setActiveLang('es');
+            translatePage('es');
+        });
+    </script>
+
+</body>
+</html>

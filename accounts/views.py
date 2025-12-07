@@ -8,6 +8,9 @@ def home(request):
 def lessons_view(request):
     return render(request, 'accounts/lessons.html')
 
+def lesson_uno_view(request):
+    return render(request, 'accounts/lesson_uno.html')
+
 def signup_view(request):
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
