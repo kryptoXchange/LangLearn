@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-key="page_title">WorkLingo - Saludar a Clientes</title>
+    <title data-key="page_title">WorkLingo - Tomar Órdenes y Pedidos</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,8 +28,8 @@
     <header class="bg-white border-b border-gray-200 sticky top-0 z-50">
         <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
-                <!-- Logo / Dashboard Link -->
-                <a href= "{% url 'home' %}" class="flex-shrink-0">
+                <!-- Logo / Dashboard Link. Using relative path for the sandbox environment. -->
+                <a href="{% url 'lessons' %}" class="flex-shrink-0">
                     <span class="text-2xl font-bold text-cyan-600">WorkLingo</span>
                     <span class="text-sm font-medium text-gray-500 ml-2" data-key="nav_dashboard">Panel de Control</span>
                 </a>
@@ -54,51 +54,51 @@
         
         <!-- Lesson Header -->
         <div class="mb-8">
-            <a href="{% url 'lessons' %}" class="text-sm font-medium text-cyan-600 hover:text-cyan-800 transition duration-150 flex items-center mb-2">
+            <a href="lesson_home.html" class="text-sm font-medium text-cyan-600 hover:text-cyan-800 transition duration-150 flex items-center mb-2">
                 <svg class="w-4 h-4 mr-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
                 </svg>
                 <span data-key="back_to_dashboard">Volver al Panel de Control</span>
             </a>
-            <p class="text-xs font-semibold uppercase text-teal-700 mb-1" data-key="module_id">MÓDULO 1</p>
-            <h1 class="text-4xl font-extrabold text-gray-900" data-key="lesson_title">Saludar a Clientes</h1>
-            <p class="text-gray-600 mt-2 text-lg" data-key="lesson_intro">Aprenderás a dar una bienvenida cálida y profesional en inglés, y a hacer las preguntas iniciales clave.</p>
+            <p class="text-xs font-semibold uppercase text-teal-700 mb-1" data-key="module_id">MÓDULO 2</p>
+            <h1 class="text-4xl font-extrabold text-gray-900" data-key="lesson_title">Tomar Órdenes y Pedidos</h1>
+            <p class="text-gray-600 mt-2 text-lg" data-key="lesson_intro">Aprenderás a preguntar si el cliente está listo, a tomar su pedido de manera eficiente y a confirmar los detalles.</p>
         </div>
 
         <!-- Key Phrases Section -->
         <section class="mb-10 p-6 bg-white rounded-xl shadow-lg border-l-4 border-teal-500">
-            <h2 class="text-2xl font-bold text-gray-900 mb-4" data-key="section_key_phrases">Frases Clave: Bienvenida</h2>
+            <h2 class="text-2xl font-bold text-gray-900 mb-4" data-key="section_key_phrases">Frases Clave: Tomar el Pedido</h2>
             
             <div class="space-y-4">
                 <!-- Phrase Card 1 -->
                 <div class="p-4 bg-gray-50 rounded-lg border border-gray-200 flex flex-col sm:flex-row justify-between items-start sm:items-center lesson-card">
                     <div>
-                        <p class="text-xl font-semibold text-teal-600" data-key="p1_en">Hello, welcome to [Restaurant/Company Name]!</p>
-                        <p class="text-sm text-gray-500 mt-1" data-key="p1_es">¡Hola, bienvenido a [Nombre del Restaurante/Empresa]!</p>
+                        <p class="text-xl font-semibold text-teal-600" data-key="p1_en">Are you ready to order?</p>
+                        <p class="text-sm text-gray-500 mt-1" data-key="p1_es">¿Está listo(a) para ordenar?</p>
                     </div>
                 </div>
 
                 <!-- Phrase Card 2 -->
                 <div class="p-4 bg-gray-50 rounded-lg border border-gray-200 flex flex-col sm:flex-row justify-between items-start sm:items-center lesson-card">
                     <div>
-                        <p class="text-xl font-semibold text-teal-600" data-key="p2_en">How may I help you today?</p>
-                        <p class="text-sm text-gray-500 mt-1" data-key="p2_es">¿En qué puedo ayudarle hoy?</p>
+                        <p class="text-xl font-semibold text-teal-600" data-key="p2_en">What can I get for you?</p>
+                        <p class="text-sm text-gray-500 mt-1" data-key="p2_es">¿Qué puedo ofrecerle?</p>
                     </div>
                 </div>
 
                 <!-- Phrase Card 3 -->
                 <div class="p-4 bg-gray-50 rounded-lg border border-gray-200 flex flex-col sm:flex-row justify-between items-start sm:items-center lesson-card">
                     <div>
-                        <p class="text-xl font-semibold text-teal-600" data-key="p3_en">Do you have a reservation?</p>
-                        <p class="text-sm text-gray-500 mt-1" data-key="p3_es">¿Tiene usted una reservación?</p>
+                        <p class="text-xl font-semibold text-teal-600" data-key="p3_en">Could I get the [item], please?</p>
+                        <p class="text-sm text-gray-500 mt-1" data-key="p3_es">¿Me podría traer el [artículo], por favor?</p>
                     </div>
                 </div>
 
                 <!-- Phrase Card 4 -->
                 <div class="p-4 bg-gray-50 rounded-lg border border-gray-200 flex flex-col sm:flex-row justify-between items-start sm:items-center lesson-card">
                     <div>
-                        <p class="text-xl font-semibold text-teal-600" data-key="p4_en">How many people are in your party?</p>
-                        <p class="text-sm text-gray-500 mt-1" data-key="p4_es">¿Cuántas personas son?</p>
+                        <p class="text-xl font-semibold text-teal-600" data-key="p4_en">I'll take the [dish].</p>
+                        <p class="text-sm text-gray-500 mt-1" data-key="p4_es">Yo tomaré el [platillo].</p>
                     </div>
                 </div>
             </div>
@@ -112,7 +112,7 @@
             <div class="space-y-6 max-w-lg">
                 <div id="q1-container">
                     <p class="mb-2 text-lg font-medium text-gray-700" data-key="q1_text">
-                        Welcome to WorkLingo! How may I [___] you today?
+                        What [___] I get you to drink?
                     </p>
                     <input type="text" id="q1-input" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-cyan-500 focus:border-cyan-500" placeholder="Escribe la palabra aquí..." data-key="q_placeholder">
                     <p id="q1-feedback" class="mt-2 text-sm font-semibold"></p>
@@ -120,7 +120,7 @@
                 
                 <div id="q2-container">
                     <p class="mb-2 text-lg font-medium text-gray-700" data-key="q2_text">
-                        [___] you have a reservation?
+                        I'll [___] the soup of the day.
                     </p>
                     <input type="text" id="q2-input" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-cyan-500 focus:border-cyan-500" placeholder="Escribe la palabra aquí..." data-key="q_placeholder">
                     <p id="q2-feedback" class="mt-2 text-sm font-semibold"></p>
@@ -134,9 +134,11 @@
 
         <!-- Footer Navigation -->
         <div class="flex justify-between items-center pt-6 border-t border-gray-200">
-            <button class="px-6 py-3 border border-gray-300 text-base font-medium rounded-lg text-gray-700 bg-white hover:bg-gray-100 transition duration-150 cursor-not-allowed opacity-50" disabled data-key="prev_lesson">
+            <!-- Enabled Previous Lesson link to Lesson 1 -->
+            <a href="{% url 'lesson-uno' %}" class="px-6 py-3 border border-gray-300 text-base font-medium rounded-lg text-gray-700 bg-white hover:bg-gray-100 transition duration-150" data-key="prev_lesson">
                 &larr; Lección Anterior
-            </button>
+            </a>
+            <!-- Complete Lesson link back to Dashboard -->
             <a href="{% url 'lessons' %}" class="px-6 py-3 border border-transparent text-base font-medium rounded-lg shadow-md text-white bg-teal-600 hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500 transition duration-150" data-key="complete_lesson">
                 Marcar como Completado
             </a>
@@ -152,25 +154,25 @@
 
         const languageStrings = {
             en: {
-                page_title: "WorkLingo - Greeting Customers",
+                page_title: "WorkLingo - Taking Orders",
                 nav_dashboard: "Dashboard",
                 back_to_dashboard: "Back to Dashboard",
-                module_id: "MODULE 1",
-                lesson_title: "Greeting Customers",
-                lesson_intro: "You will learn how to give a warm, professional welcome in English and ask key initial questions.",
-                section_key_phrases: "Key Phrases: Welcome",
-                p1_en: "Hello, welcome to [Restaurant/Company Name]!",
-                p1_es: "¡Hola, bienvenido a [Nombre del Restaurante/Empresa]!",
-                p2_en: "How may I help you today?",
-                p2_es: "¿En qué puedo ayudarle hoy?",
-                p3_en: "Do you have a reservation?",
-                p3_es: "¿Tiene usted una reservación?",
-                p4_en: "How many people are in your party?",
-                p4_es: "¿Cuántas personas son?",
+                module_id: "MODULE 2",
+                lesson_title: "Taking Orders",
+                lesson_intro: "You will learn how to ask if the customer is ready, take their order efficiently, and confirm the details.",
+                section_key_phrases: "Key Phrases: Taking the Order",
+                p1_en: "Are you ready to order?",
+                p1_es: "¿Está listo(a) para ordenar?",
+                p2_en: "What can I get for you?",
+                p2_es: "¿Qué puedo ofrecerle?",
+                p3_en: "Could I get the [item], please?",
+                p3_es: "¿Me podría traer el [artículo], por favor?",
+                p4_en: "I'll take the [dish].",
+                p4_es: "Yo tomaré el [platillo].",
                 section_practice: "Quick Practice",
                 practice_instruction: "Complete the sentence with the most appropriate word in English.",
-                q1_text: "Welcome to WorkLingo! How may I [___] you today?",
-                q2_text: "[___] you have a reservation?",
+                q1_text: "What [___] I get you to drink?",
+                q2_text: "I'll [___] the soup of the day.",
                 q_placeholder: "Type the word here...",
                 check_button: "Check Answers",
                 prev_lesson: "← Previous Lesson",
@@ -179,25 +181,25 @@
                 incorrect: "Try again. Hint: look at the phrases above.",
             },
             es: {
-                page_title: "WorkLingo - Saludar a Clientes",
+                page_title: "WorkLingo - Tomar Órdenes y Pedidos",
                 nav_dashboard: "Panel de Control",
                 back_to_dashboard: "Volver al Panel de Control",
-                module_id: "MÓDULO 1",
-                lesson_title: "Saludar a Clientes",
-                lesson_intro: "Aprenderás a dar una bienvenida cálida y profesional en inglés, y a hacer las preguntas iniciales clave.",
-                section_key_phrases: "Frases Clave: Bienvenida",
-                p1_en: "Hello, welcome to [Restaurant/Company Name]!",
-                p1_es: "¡Hola, bienvenido a [Nombre del Restaurante/Empresa]!",
-                p2_en: "How may I help you today?",
-                p2_es: "¿En qué puedo ayudarle hoy?",
-                p3_en: "Do you have a reservation?",
-                p3_es: "¿Tiene usted una reservación?",
-                p4_en: "How many people are in your party?",
-                p4_es: "¿Cuántas personas son?",
+                module_id: "MÓDULO 2",
+                lesson_title: "Tomar Órdenes y Pedidos",
+                lesson_intro: "Aprenderás a preguntar si el cliente está listo, a tomar su pedido de manera eficiente y a confirmar los detalles.",
+                section_key_phrases: "Frases Clave: Tomar el Pedido",
+                p1_en: "Are you ready to order?",
+                p1_es: "¿Está listo(a) para ordenar?",
+                p2_en: "What can I get for you?",
+                p2_es: "¿Qué puedo ofrecerle?",
+                p3_en: "Could I get the [item], please?",
+                p3_es: "¿Me podría traer el [artículo], por favor?",
+                p4_en: "I'll take the [dish].",
+                p4_es: "Yo tomaré el [platillo].",
                 section_practice: "Práctica Rápida",
                 practice_instruction: "Completa la frase con la palabra más adecuada en inglés.",
-                q1_text: "Welcome to WorkLingo! How may I [___] you today?",
-                q2_text: "[___] you have a reservation?",
+                q1_text: "What [___] I get you to drink?",
+                q2_text: "I'll [___] the soup of the day.",
                 q_placeholder: "Escribe la palabra aquí...",
                 check_button: "Comprobar Respuestas",
                 prev_lesson: "← Lección Anterior",
@@ -207,7 +209,7 @@
             }
         };
 
-        // --- TRANSLATION LOGIC (Copied from lesson_home.html) ---
+        // --- TRANSLATION LOGIC ---
 
         const translatePage = (lang) => {
             document.documentElement.lang = lang;
@@ -255,10 +257,10 @@
 
 
         // --- PRACTICE QUIZ LOGIC ---
-
+        // Correct answers for "What [can] I get you to drink?" and "I'll [have] the soup of the day."
         const correctAnswers = {
-            'q1-input': 'help',
-            'q2-input': 'Do'
+            'q1-input': 'can',
+            'q2-input': 'have' 
         };
 
         const checkQuiz = () => {
@@ -272,13 +274,13 @@
                     feedbackElement.textContent = languageStrings[currentLang].correct;
                     feedbackElement.classList.remove('text-red-500');
                     feedbackElement.classList.add('text-green-600');
-                    inputElement.classList.remove('border-red-500');
+                    inputElement.classList.remove('border-red-500', 'border-gray-300');
                     inputElement.classList.add('border-green-500');
                 } else {
                     feedbackElement.textContent = languageStrings[currentLang].incorrect;
                     feedbackElement.classList.remove('text-green-600');
                     feedbackElement.classList.add('text-red-500');
-                    inputElement.classList.remove('border-green-500');
+                    inputElement.classList.remove('border-green-500', 'border-gray-300');
                     inputElement.classList.add('border-red-500');
                 }
             };
